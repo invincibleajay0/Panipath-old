@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="./../../templates/optimization-overview/horizontal-optimization-overview/horizontal-optimization-overview.css" />
+<script src="./../../templates/optimization-overview/horizontal-optimization-overview/horizontal-optimization-overview.js"></script>
+<div class="col-md-12 optitles-row ope1">
+    <!-- <div class="col-md-12"> -->
+        <div class="col-md-5 card-col">
+            <div class="card clearfix">
+                <div class="title">
+                    <span class="maintitle"> Potential Opportunity (INR/hr)</span>
+                   
+                </div>
+                <div class="body">
+                   
+                    <div class="row" style="display: inline-flex;">
+                        <span class="trend">
+                            <select name="aera-drop-pncp" id="aera-drop-pncp" style="padding: 2px;">
+                                <option value="Day">Daily</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Monthly">Monthly</option>
+                                <option value="Yearly">Yearly</option>
+                               
+                            </select>
+                        </span>    
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <span id="num"></span>
+                        </div>
+                        <div class="col-md-8">
+                            <div id="chartContainerrArea" style="height: 8.2vw;"></div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="col-md-4">
+                        <span class="numt1">Actual Cost (INR/hr)<br> 
+                            <span class="num1" id="num-Actual"></span>
+                        </span>
+
+                    </div>
+                    <div class="col-md-8">
+                        <span class="numt1">Optimum Cost (INR/hr)<br> 
+                            <span class="num1" id="num-Optimum"></span>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-7 card-col">
+            <div class="card">
+
+                <div class="title col-line">
+                    <span class="main-head">Recommendations</span>
+                </div>
+                <hr class="border">
+                <div class="body overflow genratorsHeight">
+                    <table class="table0">
+                        <tbody id="recommendations"></tbody>
+                    </table>
+
+                </div>
+            </div>
+    </div>
+</div>

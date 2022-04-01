@@ -1,0 +1,131 @@
+<link rel="stylesheet" href="/../templates/tps-overview/equipment-efficiency/GT/GT.css">
+<script src="/../templates/tps-overview/equipment-efficiency/GT/GT.js"></script>
+<div class="tab-three GT-equipment-efficiency">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6 card-col">
+                <div class="card mt-14 GT-eff-equ">
+                    <div class="row mt-10">
+                        <div class="col-md-12">
+                            <div class="col-md-5 fuel-PT">
+                                <span class="heading_graph"><span id="gtvalue">GT1</span> Efficiency (%)</span>
+                            </div>
+                            <div class="col-md-7 mt-5">
+                                <div class="row" style="display: inline-block;">
+                                    <span class="trend">
+                                        <select name="s1" id="gtr1" style="padding: 0.2vw;">
+                                            <option value="GT1">GT1</option>
+                                            <option value="GT2">GT2</option>
+                                            <option value="GT3"> GT3 </option>
+                                            <option value="GT4"> GT4 </option>
+                                            <option value="GT5"> GT5 </option>
+                                        </select>
+                                    </span>
+                                    <span class="from">
+
+                                        <input type="datetime-local" id="fromgtBar" name="fromGTBar">
+                                    </span>
+                                    <span class="from">
+
+                                        <input type="datetime-local" id="togtBar" name="toGTBar">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="box-marg">
+                            <div class="box-eff box-blue"></div>
+                            <span class="color-eff"> Actual</span>
+
+                            <div class="box-eff box-yellow"></div>
+                            <span class="color-eff">Design</span>
+                        </div>
+                    </div>
+                    <div class="row col-md-12 mt-5">
+                        <div id="chartContainerGT"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6 card-col fuel-color">
+                <div class="card mt-14 fuel-card">
+                    <div class="row mt-10">
+                        <div class="col-md-12">
+                            <div class="col-md-5">
+                                <span class="heading_graph">Power Generated (MW) </span>
+                            </div>
+                            <div class="col-md-7 mt-5">
+                                <div class="row">
+                                    <input type="datetime-local" id="fromGT" name="fromGT">
+
+                                    <input type="datetime-local" id="toGT" name="toGT">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <!-- <div class="col-md-2 wdt "> -->
+                        <div class="first-spa"> </div>
+                        <span class="col-rt">GT1</span>
+                        <!-- </div> -->
+                        <!-- <div class="col-md-2 wdt "> -->
+                        <div class="secd-spa"> </div>
+                        <span class="col-rt">GT2</span>
+                        <!-- </div> -->
+                        <!-- <div class="col-md-2 wdt "> -->
+                        <div class="third-spa"> </div>
+                        <span class="col-rt">GT3</span>
+                        <!-- </div> -->
+                        <!-- <div class="col-md-4 wdt "> -->
+                        <div class="four-spa"> </div>
+                        <span class="col-rt">GT4</span>
+                        <!-- </div> -->
+                        <!-- <div class="col-md-4 wdt "> -->
+                        <div class="five-spa"> </div>
+                        <span class="col-rt">GT5</span>
+                        <!-- </div> -->
+
+                    </div>
+                    <div class="row col-md-12 mt-10">
+                        <div id="GT-line"> </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 card-col">
+                <div class="card card-col mt-14 GT-table-eff">
+                    <div class="overflow genratorsHeight">
+                        <table id="Gas_table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5vw;">Gas Turbine ID</th>
+                                    <th style="width: 5vw;">Status</th>
+                                    <th>Capacity Utilization (Design) %</th>
+                                    <th>Capacity Utilization (Actual) %</th>
+                                    <th>Duty Fired<br> Gcal/hr</th>
+                                    <th>Power Generation  Cost (INR/KW)</th>
+                                    <th>Heat Rate (Design)kcal/kwh</th>
+                                    <th>Heat Rate (Actual) kcal/kwh</th>
+                                    <th>Exhaust Temperature (Design) °C</th>
+                                    <th>Exhaust Temperature (Actual) °C</th>
+
+                                </tr>
+                            </thead>
+                            <tbody id="bodyGas_table">
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>

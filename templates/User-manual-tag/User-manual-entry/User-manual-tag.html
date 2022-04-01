@@ -1,0 +1,204 @@
+<link rel="stylesheet" href="templates/User-manual-tag/User-manual-entry/User-manual-tag.css" />
+<script src="templates/User-manual-tag/User-manual-entry/User-manual-tag.js"></script>
+<div class="col-md-12 Usermanual-tabb">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12 summary-heading">
+                <span class="heading-item pull-left" style="padding-right: 10px;"><input type="button"
+                        class="btn btn-primary" name="" id="" onclick="exportFunction()" value="Report"></span>
+                <form action="" method="post" id="form_ip" onsubmit="" enctype=multipart/form-data novalidate>
+                    <span class="heading-item pull-left" style="padding-right: 10px;">
+                        <input type="file" class="btn btn-primary" name="file" id="chooseFile" value="Import">
+                    </span>
+                    <span class="heading-item pull-left" style="padding-right: 10px;">
+                        <input type="submit" value="Upload File" class="btn btn-primary" id="upload-button">
+                    </span>
+                </form>
+                <span class="heading-item pull-right" style="padding-right: 10px;">
+                    <input type="button" value="Sample CSV" class="btn btn-primary" onclick="sampledownloaduser()">
+                </span>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 card-col">
+                <div class="card">
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="searchSysConfing" style="color: #d9d9d9;">Search</label>
+                                <input type="text" id="searchSysConfing" class="searchInput"
+                                    placeholder="Search for Tag" title="Type in a name">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="pull-right">
+                                    <button class="btn btn-primary" onclick="usermodel()" style="margin:0 1vw;"> Add</button>
+                                </div>
+                                <div class="pull-right">
+                                    <button class="btn btn-primary" onclick="userdeletedata()">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="card-body mt-4">
+                        <div class="overflow genratorsHeight">
+                            <table id="datatablesCalculatedTag" class="DataTable">
+                                <thead>
+                                    <tr>
+                                        <th>ManualEntry</th>
+                                        <th style="width: 8vw;">Tag Values</th>
+                                        <th style="width: 16vw;">Timestamp</th>
+                                        <th>UOM</th>
+                                        <th>Description</th>
+                                        <th>Edit</th>
+                                        <th style="width: 8vw;"><label
+                                           >&nbsp; Delete</label></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bodytablesCalculatedTag" class="DataTable">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="AdduserRow">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <button id="adduserclose" onclick="adduserclose()">&times;</button>
+                </div>
+            </div>
+            <div class="header">
+                <span>Add Tag</span>
+            </div>
+            <div class="row">
+
+                <div class="col-md-12 card-col">
+                    <div class="col-md-12 mt-14">
+                        <div class="row">
+                            <div class="col-md-2  mt-5">
+                                <span class="textstyle"> Manual Entry <span class="pull-right">:</span></span>
+                            </div>
+                            <div class="col-md-10">
+                                <input class="form-control" id="inputColumnName" type="text"
+                                    placeholder="Enter Tag Name" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-14">
+                        <div class="row">
+                            <div class="col-md-2  mt-5">
+                                <span class="textstyle"> Tag Values <span class="pull-right">:</span></span>
+                            </div>
+                            <div class="col-md-10">
+                                <input class="form-control" id="tagValueManual" type="number"
+                                    placeholder="Enter Values" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-14">
+                        <div class="row">
+                            <div class="col-md-2  mt-5">
+                                <span class="textstyle"> UOM <span class="pull-right">:</span></span>
+                            </div>
+                            <div class="col-md-10">
+                                <input class="form-control" id="UOMmanual" type="text" placeholder="Enter UOM" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-14">
+                        <div class="row">
+                            <div class="col-md-2  mt-5">
+                                <span class="textstyle"> Description <span class="pull-right">:</span></span>
+                            </div>
+                            <div class="col-md-10">
+                                <input class="form-control" id="descriptmanual" type="text"
+                                    placeholder="Enter Description" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-14">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <span class="error" style="color: green;" id="eTable"></span>
+                            <span class="error" style="color: red;" id="eTableerroe"></span>
+                        </div>
+                        <input class="btn btn-primary " onclick="saveTable()" type="button" value="Insert" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="updateRow">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <button onclick="closeuserupdate()" id="closeuserupdate">&times;</button>
+                </div>
+            </div>
+            <div class="header">
+                <span>Update Tag</span>
+            </div>
+            <div class="row">
+                <div class="col-md-12 card-col">
+                    <div class="col-md-12 mt-14">
+                        <div class="row">
+                            <div class="col-md-2  mt-5">
+                                <span class="textstyle"> Manual Entry <span class="pull-right">:</span></span>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" id="tagNamep" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 mt-14">
+                        <div class="row">
+                            <div class="col-md-2  mt-5">
+                                <span class="textstyle"> Tag Values <span class="pull-right">:</span></span>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="number" id="tagValuep" class="form-control">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 mt-14">
+                        <div class="row">
+                            <div class="col-md-2  mt-5">
+                                <span class="textstyle"> UOM <span class="pull-right">:</span></span>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" id="uomp" class="form-control">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 mt-14">
+                        <div class="row">
+                            <div class="col-md-2  mt-5">
+                                <span class="textstyle"> Description <span class="pull-right">:</span></span>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" id="discriptionp" class="form-control">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 mt-14">
+                        <button class="addbtn btn btn-primary" id="updateRowBtn"> save</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

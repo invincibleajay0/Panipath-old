@@ -1,0 +1,175 @@
+/* equipment Efficiency Css */
+
+
+#equipment-overview input {
+    font-size: 0.8vw;
+    background-color: #26293c;
+    border: 1px solid #f2f2f2;
+    padding: 2px;
+    border-radius: 5px;
+    margin-left: 15px;
+    max-width: 10.8vw;
+    cursor: pointer;
+    color: #f2f2f2;
+    margin-right: 4PX;
+}
+
+#equipment-overview .count-line {
+    height: 8vw;
+    margin-left: 0.5vw;
+}
+
+#equipment-overview .title {
+    height: 2vw;
+}
+
+#equipment-overview .col-ty {
+    border-right: 1px solid #d9d9d9;
+}
+
+#equipment-overview .col-left {
+    border-right: 1px solid #d9d9d9;
+}
+
+#equipment-overview .title-1 {
+    height: 1.8vw;
+}
+
+#equipment-overview .box1-yellow {
+    background-color: #FFC100;
+}
+
+#equipment-overview .title-1 .box1-blue {
+    background-color: #0896CC;
+}
+
+#equipment-overview .title-1 .box-eff {
+    width: 0.9vw;
+    height: 0.8vw;
+    display: inline-block;
+}
+
+#equipment-overview .title-1 .color-eff {
+    font-size: 1vw;
+    color: #d9d9d9;
+    ;
+    padding-left: 6px;
+    margin-right: 0.5vw;
+}
+
+#equipment-overview hr {
+    border: 1px solid #6c6f7e;
+    margin: 1vw 0;
+}
+
+#equipment-overview .title-1 .col-st {
+    font-size: 1.2vw;
+    color: #d9d9d9;
+}
+
+/*Fccunit table CSS */
+#equipment-overview table {
+    font-family: Yu Gothic UI;
+    border-collapse: collapse;
+    position: relative;
+    width: 100%;
+}
+
+#equipment-overview td {
+    padding: 0.5vw;
+    font-size: 1vw;
+    color: #d9d9d9;
+    border-bottom: 0.13vw solid #7e808b;
+}
+
+#equipment-overview tr:last-child td {
+    border-bottom: 0vw;
+
+}
+
+#equipment-overview th {
+    background-color: #442266;
+    color: #d9d9d9;
+    font-size: 0.8vw;
+    position: sticky;
+    top: 0;
+    text-align: left;
+    padding: 0.5vw;
+    font-size: 1.1vw;
+}
+
+#equipment-overview .title {
+    color: #d9d9d9;
+    font-size: 1.1vw;
+    padding: 0px;
+    font-family: Yu Gothic UI;
+
+}
+
+#equipment-overview .tiles-row .steam-table {
+    padding-left: 0px;
+}
+
+#equipment-overview .col-tb {
+    border-right: 2px solid #6c6f7e;
+}
+
+#equipment-overview .line {
+    height: 0.3vw;
+    width: 1.6vw;
+    display: inline-flex;
+    margin: 0 0.5vw;
+    position: relative;
+}
+
+#equipment-overview .org-spa {
+    background-color: #C55B11;
+
+}
+
+#equipment-overview .col-rt {
+    position: relative;
+    color: #d9d9d9;
+    display: inline-block;
+    font-size: 0.9vw;
+}
+
+#equipment-overview .ncu-headline {
+    font-size: 2vw;
+    margin-top: -9px;
+    padding-left: 8px;
+    color: #d9d9d9;
+}
+
+/* table scrollbar CSS */
+#equipment-overview .overflow {
+    overflow: auto;
+}
+
+#equipment-overview .genratorsHeight {
+    height: 18vw;
+}
+
+#equipment-overview .scroll {
+    width: 40%;
+    overflow: auto;
+}
+
+#equipment-overview ::-webkit-scrollbar {
+    width: 0.3vw;
+    height: 0.3vw;
+}
+
+#equipment-overview ::-webkit-scrollbar-track {
+    border: 1px solid #262A3C;
+    border-radius: 15px;
+}
+
+#equipment-overview ::-webkit-scrollbar-thumb {
+    background: #8d8a95;
+    border-radius: 15px;
+}
+
+#equipment-overview ::-webkit-scrollbar-thumb:hover {
+    background: #8d8a95;
+}

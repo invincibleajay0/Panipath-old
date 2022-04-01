@@ -1,0 +1,136 @@
+<link rel="stylesheet" href="/../templates/tps-overview/equipment-efficiency/HRSG/HRSG.css">
+<script src="/../templates/tps-overview/equipment-efficiency/HRSG/HRSG.js"></script>
+<div class="body1 four-tab HRSG-equipment-efficiency">
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6 card-col">
+                <div class="card mt-14 HRSG-eff-equ ">
+                    <div class="row mt-10">
+                        <div class="col-md-12">
+                            <div class="col-md-5 fuel-PT card-col">
+                                <span class="heading_graph"><span id="hrefvalue">HRSG01</span> Efficiency (%)</span>
+                            </div>
+                            <div class="col-md-7 mt-5">
+                                <div class="row" style="display: inline-block;">
+                                    <span class="trend">
+                                        <select name="s1" id="hrsgr1" style="padding: 0.2vw;">
+                                            <option value="HRSG01">HRSG01</option>
+                                            <option value="HRSG02">HRSG02</option>
+                                            <option value="HRSG03"> HRSG03 </option>
+                                            <option value="HRSG04"> HRSG04 </option>
+                                            <option value="HRSG05"> HRSG05 </option>
+
+                                        </select>
+                                    </span>
+                                    <span class="from">
+
+                                        <input type="datetime-local" id="fromHRSGBar" name="fromHRSGBar">
+                                    </span>
+                                    <span class="from">
+
+                                        <input type="datetime-local" id="toHRSGBar" name="toHRSGBar">
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="box-marg">
+                            <div class="box-eff box-blue"></div>
+                            <span class="color-eff"> Actual</span>
+
+                            <div class="box-eff box-yellow"></div>
+                            <span class="color-eff">Design</span>
+                        </div>
+                    </div>
+                    <div class="row col-md-12 mt-5">
+                        <div id="chartContainerHRSG"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6 card-col fuel-color">
+                <div class="card mt-14 fuel-card">
+                    <div class="row mt-10">
+                        <div class="col-md-12">
+                            <div class="col-md-5">
+                                <span class="heading_graph">Steam Generated (Ton/hr) </span>
+                            </div>
+                            <div class="col-md-7 mt-5">
+                                <div class="row">
+
+                                    <input type="datetime-local" id="fromHRSG" name="fromHRSG">
+
+                                    <input type="datetime-local" id="toHRSG" name="toHRSG">
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12 mt-5">
+                            <div class="col-md-12">
+                                <div class="first-spa"> </div>
+                                <span class="col-rt">HRSG01</span>
+
+                                <div class="secd-spa"> </div>
+                                <span class="col-rt">HRSG02</span>
+
+                                <div class="third-spa"> </div>
+                                <span class="col-rt">HRSG03</span>
+
+                                <div class="four-spa"> </div>
+                                <span class="col-rt">HRSG04</span>
+
+                                <div class="fifth-spa"> </div>
+                                <span class="col-rt">HRSG05</span>
+
+                            </div>
+                        </div>
+                        <div class="row col-md-12 mt-10">
+                            <div class="col-md-12">
+                                <div id="HRSG-line"> </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+          
+
+        </div>
+        <div class="row">
+            <div class="col-md-12 card-col">
+                <div class="card mt-14 HRSG-table-eff">
+                    <div class="overflow genratorsHeight">
+                        <table id="HRSG_table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5vw;">HRSG ID</th>
+                                    <th style="width: 5vw;">Status</th>
+                                    <th>Steam generation Cost (INR/MT)</th>
+                                    <th>Aux. Fuel Duty Gcal/hr</th>
+                                    <th>Aux. Fuel Flow <br>Rate (Actual) <br>MT/hr</th>
+                                    <th>Aux. Fuel Flow <br>Rate (Actual) SRFT/hr</th>
+                                    <th>Steam To Fuel <br>Ratio (Design) MT/SRFT</th>
+                                    <th>Steam To Fuel <br>Ratio (Actual) MT/SRFT</th>
+                                    <th>Exhaust Temperature (Design) °C</th>
+                                    <th>Exhaust Temperature (Actual) °C</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyHRSG_table">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
