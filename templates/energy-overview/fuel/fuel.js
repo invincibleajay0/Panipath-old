@@ -68,12 +68,16 @@ function getSpecificFuelPNCData() {
 
 function formatSpecificFuelPNCData(data, Difference_In_Days) {
     var chartData = { Throughput: [], FuelConsumption: [] };
+    var minMaxThroughput = [];
+    var minMaxTEC = []
     for (let index = 0; index < data.length; index++) {
         const element = data[index];
         var count = data.length;
         const fuelDate = new Date(element.date);
         chartData.FuelConsumption.push({ y: element.fuelConsumption, x: fuelDate });
         chartData.Throughput.push({ y: element.throughput, x: fuelDate });
+        minMaxThroughput.push(element.throughput);
+        minMaxTEC.push(element.fuelConsumption);
     }
     console.log("chartdata", chartData);
     var interval = 1;
@@ -85,7 +89,7 @@ function formatSpecificFuelPNCData(data, Difference_In_Days) {
         }
 
     }
-    showSpecificFuelPNCChart(chartData, Difference_In_Days, interval);
+    showSpecificFuelPNCChart(chartData, Difference_In_Days, interval ,minMaxThroughput ,minMaxTEC);
 }
 
 
@@ -241,7 +245,11 @@ function loadDoughnutChartFuel(data) {
 }
 
 
-function showSpecificFuelPNCChart(data, Difference_In_Days, interval) {
+function showSpecificFuelPNCChart(data, Difference_In_Days, interval, minMaxThroughput ,minMaxTEC) {
+    var minValueThroughput = Math.min(...minMaxThroughput);
+ var maxValueThroughput = Math.max(...minMaxThroughput);
+ var minValueminMaxTEC = Math.min(...minMaxTEC);
+ var maxValueminMaxTEC = Math.max(...minMaxTEC);
     var chart = new CanvasJS.Chart("fuel-chart-container", {
         animationEnabled: true,
         theme: "dark1",
@@ -272,7 +280,9 @@ function showSpecificFuelPNCChart(data, Difference_In_Days, interval) {
             labelFontColor: "#bfbfbf",
             labelFontSize: 15,
             fontFamily: "Bahnschrift Light",
-            "minimum": 0
+            minimum : minValueminMaxTEC - 0.02,
+            maximum :  maxValueminMaxTEC + 0.02
+
         },
         axisY2: {
             title: "MT/Day",
@@ -283,8 +293,8 @@ function showSpecificFuelPNCChart(data, Difference_In_Days, interval) {
             labelFontColor: "#bfbfbf",
             labelFontSize: 15,
             fontFamily: "Bahnschrift Light",
-            minimum:1400,
-            maximum:2600
+            minimum : minValueThroughput - 100,
+            maximum : maxValueThroughput + 100
         },
         data: [{
             type: $("#chartType1 option:selected").val(),

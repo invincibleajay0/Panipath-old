@@ -173,12 +173,16 @@ function getSpecificSteamConsumptionData() {
 }
 function formatSpecificSteamConsumptionData(data, Difference_In_Days) {
     var chartData = { specificsteamconsumption: [], throughput: [] };
+    var minMaxThroughput = [];
+    var minMaxTEC = []
     for (let index = 0; index < data.length; index++) {
         const element = data[index];
         var count = data.length;
         const steamDate = new Date(element.date);
         chartData.throughput.push({ y: element.throughput, x: steamDate });
         chartData.specificsteamconsumption.push({ y: element.fuelConsumption, x: steamDate });
+        minMaxThroughput.push(element.throughput);
+        minMaxTEC.push(element.fuelConsumption);
     }
     console.log("steamchartdata", chartData);
     var interval = 1;
@@ -190,9 +194,13 @@ function formatSpecificSteamConsumptionData(data, Difference_In_Days) {
         }
 
     }
-    showSpecificSteamConsumptionChart(chartData, Difference_In_Days, interval);
+    showSpecificSteamConsumptionChart(chartData, Difference_In_Days, interval , minMaxThroughput , minMaxTEC);
 }
-function showSpecificSteamConsumptionChart(data, Difference_In_Days, interval) {
+function showSpecificSteamConsumptionChart(data, Difference_In_Days, interval , minMaxThroughput , minMaxTEC) {
+    var minValueThroughput = Math.min(...minMaxThroughput);
+    var maxValueThroughput = Math.max(...minMaxThroughput);
+    var minValueminMaxTEC = Math.min(...minMaxTEC);
+    var maxValueminMaxTEC = Math.max(...minMaxTEC);
     var chart = new CanvasJS.Chart("steamchartLine", {
         height: 197,
         animationEnabled: true,
@@ -202,12 +210,8 @@ function showSpecificSteamConsumptionChart(data, Difference_In_Days, interval) {
             shared: true
         },
         axisX: {
-            gridColor: "gray",
-            gridThickness: 2,
-            gridDashType: "dot",
             tickThickness: 0,
-            lineThickness: 1,
-            lineColor: "#d9d9d9",
+            lineColor: "gray",
             intervalType: Difference_In_Days == true ? "hour" : "day",
             valueFormatString: Difference_In_Days == true ? "HH" : "DD MMM YYYY",
             title: Difference_In_Days == true ? "In hours" : " In Days",
@@ -215,6 +219,7 @@ function showSpecificSteamConsumptionChart(data, Difference_In_Days, interval) {
             labelFontColor: "#bfbfbf",
             labelFontSize: 15,
             fontFamily: "Bahnschrift Light",
+            
         },
         dataPointMaxWidth: 15,
         axisY: {
@@ -225,6 +230,9 @@ function showSpecificSteamConsumptionChart(data, Difference_In_Days, interval) {
             labelFontColor: "#bfbfbf",
             labelFontSize: 15,
             fontFamily: "Bahnschrift Light",
+            minimum : minValueminMaxTEC - 0.02,
+            maximum :  maxValueminMaxTEC + 0.02
+
         },
         axisY2: {
             title: "Throughput (MT/Day)",
@@ -235,8 +243,8 @@ function showSpecificSteamConsumptionChart(data, Difference_In_Days, interval) {
             labelFontColor: "#bfbfbf",
             labelFontSize: 15,
             fontFamily: "Bahnschrift Light",
-            minimum:1400,
-            maximum:2600
+            minimum : minValueThroughput - 100,
+            maximum : maxValueThroughput + 100
         },
         data: [{
             type: $("#chartsteamdata1 option:selected").val(),

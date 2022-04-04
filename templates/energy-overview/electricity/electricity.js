@@ -61,12 +61,16 @@ function getSpecificElectricityConsumptionData() {
 
 function formatSpecificElectricityConsumptionData(data, Difference_In_Days) {
     var chartData = { TotalEnergyConsumption: [], Throughput: [] };
+    var minMaxThroughput = [];
+    var minMaxTEC = []
     for (let index = 0; index < data.length; index++) {
         const element = data[index];
         var count = data.length;
         const electricityDate = new Date(element.date);
         chartData.Throughput.push({ y: element.throughput, x: electricityDate });
         chartData.TotalEnergyConsumption.push({ y: element.fuelConsumption, x: electricityDate });
+        minMaxThroughput.push(element.throughput);
+        minMaxTEC.push(element.fuelConsumption);
     }
     console.log("electricitychartdata", chartData);
     var interval = 1;
@@ -78,10 +82,14 @@ function formatSpecificElectricityConsumptionData(data, Difference_In_Days) {
         }
 
     }
-    showSpecificEletricityConsumptionChart(chartData, Difference_In_Days, interval);
+    showSpecificEletricityConsumptionChart(chartData, Difference_In_Days, interval , minMaxThroughput ,minMaxTEC);
 }
 
-function showSpecificEletricityConsumptionChart(data, Difference_In_Days, interval) {
+function showSpecificEletricityConsumptionChart(data, Difference_In_Days, interval , minMaxThroughput , minMaxTEC) {
+    var minValueThroughput = Math.min(...minMaxThroughput);
+    var maxValueThroughput = Math.max(...minMaxThroughput);
+    var minValueminMaxTEC = Math.min(...minMaxTEC);
+    var maxValueminMaxTEC = Math.max(...minMaxTEC);
     var chart = new CanvasJS.Chart("PNCelectricityLine", {
         // height: 450,
         animationEnabled: true,
@@ -112,7 +120,9 @@ function showSpecificEletricityConsumptionChart(data, Difference_In_Days, interv
             gridThickness: 0,
             labelFontColor: "#bfbfbf",
             labelFontSize: 15,
-            fontFamily: "Bahnschrift Light"
+            fontFamily: "Bahnschrift Light",
+            minimum : minValueminMaxTEC - 10,
+            maximum :  maxValueminMaxTEC + 10
         },
         axisY2: {
             title: "MT/Day",
@@ -123,8 +133,8 @@ function showSpecificEletricityConsumptionChart(data, Difference_In_Days, interv
             labelFontColor: "#bfbfbf",
             labelFontSize: 15,
             fontFamily: "Bahnschrift Light",
-            minimum: 1400,
-            maximum: 2600
+            minimum : minValueThroughput - 100,
+            maximum : maxValueThroughput + 100
         },
         toolTip: {
             shared: true  //disable here. 
