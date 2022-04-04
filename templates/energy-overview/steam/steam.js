@@ -308,7 +308,7 @@ function loadDoughnutChart(data) {
             color: "white",
             fontFamily: "Bahnschrift Light",
             // fontColor :"white"
-           fontColor :data.colorcode == "none"? "white":data.colorcode,
+           fontColor :data.colorcode == null? "white":data.colorcode,
 
         },
         axisY: {
@@ -422,7 +422,7 @@ function loadDoughnutChartProgress2(data) {
             color: "white",
             fontFamily: "Bahnschrift Light",
             // fontColor : "white"
-           fontColor :data.colorcode == "none"? "white":data.colorcode,
+           fontColor :data.colorcode == null? "white":data.colorcode,
         },
         axisY: {
             title: "Units",

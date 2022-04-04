@@ -224,7 +224,7 @@ function loadDoughnutChartelectricityProgress2(data) {
             color: "white",
             fontFamily: "Bahnschrift Light",
             // fontColor : "white"
-            fontColor: data[0].colorcode == "none" ? "white" : data[0].colorcode,
+            fontColor: data[0].colorcode == null ? "white" : data[0].colorcode,
 
         },
         axisY: {

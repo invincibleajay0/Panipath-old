@@ -168,7 +168,7 @@ function loadDoughnutChartFuelINR(data) {
             fontSize: 15,
             fontWeight: 700,
             // fontColor : "white",
-     fontColor :data[0].colorcode == "none"? "white":data[0].colorcode,
+     fontColor :data[0].colorcode == null ? "white":data[0].colorcode,
             fontFamily: "Bahnschrift Light"
 
         },
@@ -218,7 +218,7 @@ function loadDoughnutChartFuel(data) {
             dockInsidePlotArea: true,
             fontWeight: 300,
             // fontColor : "white",
-             fontColor :data[0].colorcode == "none"? "white":data[0].colorcode,
+             fontColor :data[0].colorcode == null? "white":data[0].colorcode,
             fontFamily: "Bahnschrift Light"
 
         },
