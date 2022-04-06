@@ -19,13 +19,13 @@ $(document).ready(function () {
 
     // // setting from date, to date - 24hrs.
     const d = new Date(sessionStorage.getItem("lastUpdateddate"));
-    d.setHours(-05);
-    d.setMinutes(00);
+    d.setHours(05);
+    d.setMinutes(30);
     d.setSeconds(0);
     $('#PNCfuelfrom').val(d.toJSON().slice(0, 19));
     const tod = new Date(sessionStorage.getItem("lastUpdateddate"));
-    tod.setHours(18);
-    tod.setSeconds(59);
+    tod.setHours(29);
+    tod.setMinutes(29);
     tod.setSeconds(0);
     $('#PNCfuelto').val(tod.toJSON().slice(0, 19));
     document.getElementById("PNCfuelto").min = $('#PNCfuelfrom').val();
@@ -168,7 +168,7 @@ function loadDoughnutChartFuelINR(data) {
             fontSize: 15,
             fontWeight: 700,
             // fontColor : "white",
-     fontColor :data[0].colorcode == null ? "white":data[0].colorcode,
+     fontColor :data[0].colorcode == 'none'? "white":data[0].colorcode,
             fontFamily: "Bahnschrift Light"
 
         },
@@ -218,7 +218,7 @@ function loadDoughnutChartFuel(data) {
             dockInsidePlotArea: true,
             fontWeight: 300,
             // fontColor : "white",
-             fontColor :data[0].colorcode == null? "white":data[0].colorcode,
+             fontColor :data[0].colorcode == 'none'? "white":data[0].colorcode,
             fontFamily: "Bahnschrift Light"
 
         },

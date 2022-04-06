@@ -46,7 +46,7 @@ function loadpiechartswing(fuelConsumed) {
             dockInsidePlotArea: true,
             fontWeight: 100,
             // fontColor: "#f2f2f2",
-            fontColor : fuelConsumed.colorcode == null ? "white":fuelConsumed.colorcode,
+            fontColor : fuelConsumed.colorcode == "none"? "white":fuelConsumed.colorcode,
             fontFamily: "Bahnschrift Light"
         },
         legend: {
@@ -128,7 +128,7 @@ function loadDoughnutHoriChartswing1(energyConsumed) {
             dockInsidePlotArea: true,
             fontWeight: 500,
             // fontColor: "#f2f1e7",
-            fontColor : energyConsumed.colorcode == null ? "white":energyConsumed.colorcode,
+            fontColor : energyConsumed.colorcode == "none"? "white":energyConsumed.colorcode,
             fontFamily: "Bahnschrift Light"
         },
 
