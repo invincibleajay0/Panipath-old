@@ -60,7 +60,7 @@ function loadDoughnutChart(data) {
             dockInsidePlotArea: true,
             fontWeight: 700,
             // fontColor :"white",
-           fontColor :data.colorcode == null? "white":data.colorcode,
+           fontColor :data.colorcode == 'none'? "white":data.colorcode,
             fontFamily: "Bahnschrift Light"
         },
         legend: {

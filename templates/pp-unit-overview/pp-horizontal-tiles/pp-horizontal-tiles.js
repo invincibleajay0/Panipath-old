@@ -215,7 +215,7 @@ function loadDoughnutChartpp(energyConsumed) {
             dockInsidePlotArea: true,
             fontWeight: 500,
             // fontColor: "#f2f1e7",
-            fontColor : energyConsumed.colorcode == null ? "white":energyConsumed.colorcode,
+            fontColor : energyConsumed.colorcode == "none"? "white":energyConsumed.colorcode,
             fontFamily: "Bahnschrift Light"
         },
 
