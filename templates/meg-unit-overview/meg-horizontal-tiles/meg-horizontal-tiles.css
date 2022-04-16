@@ -138,7 +138,7 @@
 }
 #meg-horizontal-tiles  th {
     padding: 0.5vw;
-    background-color: #442266;
+    /* background-color: #442266; */
     font-size: 1.1vw;
     color: #d9d9d9;
     font-weight: normal;

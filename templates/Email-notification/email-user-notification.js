@@ -1,11 +1,14 @@
 $(document).ready(function () {
     getUserEmailNotification();
     getAllKpidetails();
+    selectpagename();
 
     $("#notificationTable").on('click', '#editNotificaton', function () {
         // var emailType = $(this).data("emailtype");
         //console.log(emailType,'emailType');
-        $("#pageNameUpdate").val($(this).data("pagename"));
+        getPageId($(this).data("pagename"));
+
+
         $("#updropdown_coins").text($(this).data("kpiname"));
         $("#minValueUpdate").val($(this).data("minvalue"));
         $("#maxValueUpdate").val($(this).data("maxvalue"));
@@ -16,7 +19,7 @@ $(document).ready(function () {
 function getAllKpidetails() {
     $.ajax({
         method: "GET",
-        url: "http://localhost:8090/EMSPNC/AllNotificationData",
+        url: "http://localhost:8090/emailnotify/getALLKPINames",
 
     }).done(function (data) {
         console.log(data);
@@ -26,6 +29,40 @@ function getAllKpidetails() {
         buildDropDown(data);
         UpdatebuildDropDown(data)
 
+    });
+}
+
+function getPageId(pagename) {
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8090/emailnotify/getPageDetails",
+
+    }).done(function (values) {
+
+        for (const val of values) {
+            if (val.page_name == pagename) {
+                $("#pageNameUpdate").val("" + val.page_id + "");
+            }
+        }
+    });
+}
+
+function selectpagename() {
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8090/emailnotify/getPageDetails",
+
+    }).done(function (values) {
+        for (const val of values) {
+            $('#pageName').append($(document.createElement('option')).prop({
+                value: val.page_id,
+                text: val.page_name
+            }))
+            $('#pageNameUpdate').append($(document.createElement('option')).prop({
+                value: val.page_id,
+                text: val.page_name
+            }))
+        }
     });
 }
 //Add dropdown
@@ -152,7 +189,7 @@ function getUserEmailNotification() {
             "Authorization": sessionStorage.getItem("tokenType") + " " + sessionStorage.getItem("accessToken"),
         },
         type: "GET",
-        url: "http://localhost:8090/EMSPNC/AllData",
+        url: "http://localhost:8090/emailnotify/AllData",
 
     }).done(function (data) {
         emailtableRender(data)
@@ -172,7 +209,7 @@ function emailtableRender(tabledata) {
         student += '<td style="text-align: center;">' + val['max_value'] + '</td>';
         student += '<td style="text-align: center;"><input class="btnRow" id="editNotificaton" onclick="emailmodelUpdate()" type="button" value="Edit" data-pageName="' +
             val['page_name'] + '" data-kpiname="' + val['kpi_name'] + '" data-minvalue="' + val['min_value'] + '" data-maxvalue="' + val['max_value'] + '" /></td>';
-        student += '<td style="text-align: center;"><input type="checkbox" class="delRow" value="Edit" /></td>';
+        student += '<td style="text-align: center;"><input type="checkbox" class="delRow" value="Edit Row" /></td>';
         student += '</tr>';
     }
     document.getElementById("bodyNotificationTable").innerHTML = student;
@@ -187,7 +224,7 @@ function addNewData() {
         document.getElementById("filldata").innerHTML = "Please Enter the data";
     }
     else {
-        var objectarryemail = { 'page_name': page_name, 'kpi_name': kpi_name, 'min_value': min_value, 'max_value': max_value }
+        var objectarryemail = { 'page_id': page_name, 'kpi_name': kpi_name, 'min_value': min_value, 'max_value': max_value }
         $.ajax({
             type: "post",
             headers: {
@@ -195,7 +232,7 @@ function addNewData() {
                 "Authorization": sessionStorage.getItem("tokenType") + " " + sessionStorage.getItem("accessToken"),
             },
             data: JSON.stringify(objectarryemail),
-            url: "http://localhost:8090/EMSPNC/InsertData ",
+            url: "http://localhost:8090/emailnotify/InsertData ",
             success: function (msg) {
 
                 if (msg.status == 'Record Inserted Sucessfully') {
@@ -224,7 +261,7 @@ function upaddNewData() {
     var min_value = $("#minValueUpdate").val();
     var max_value = $("#maxValueUpdate").val();
 
-    var objectarryemail = { 'page_name': page_name, 'kpi_name': kpi_name, 'min_value': min_value, 'max_value': max_value }
+    var objectarryemail = { 'page_id': page_name, 'kpi_name': kpi_name, 'min_value': min_value, 'max_value': max_value }
     $.ajax({
         type: "post",
         headers: {
@@ -232,7 +269,7 @@ function upaddNewData() {
             "Authorization": sessionStorage.getItem("tokenType") + " " + sessionStorage.getItem("accessToken"),
         },
         data: JSON.stringify(objectarryemail),
-        url: "http://localhost:8090/EMSPNC/UpdateData",
+        url: "http://localhost:8090/emailnotify/UpdateData",
         success: function (msg) {
             var status = msg.status
             if (status == "Record Updated Sucessfully!") {
@@ -255,7 +292,7 @@ function upaddNewData() {
 }
 
 //select all delete
-$('#caldeledataemail').click(function (event) {
+$('#caldeledataemail').on(function (event) {
     if (this.checked) {
         $(':checkbox').prop('checked', true);
     } else {
@@ -273,18 +310,17 @@ $("#searchemail").on("keyup", function () {
 
 //delete function
 
-$('#deleteNotification').click(function () {
+function deleteNotification() {
+    console.log("hii", $("input:checkbox:checked").val());
     const tablemail = document.getElementById("bodyNotificationTable");
     const deletedRowemail = [];
     console.log('delete', tablemail);
-    if ($('.delRow').prop('checked') == true) {
+    if ($("input:checkbox:checked").val() == "Edit Row") {
 
         for (const [index, row] of [...tablemail.rows].entries()) {
             if (row.querySelector('input:checked')) {
                 let deleteDataemail = row.cells[1].innerHTML;
-                // console.log('deleteDataemail',deleteDataemail);
                 deletedRowemail.push(deleteDataemail);
-                // $(':checkbox').prop('checked', false);
             }
 
         }
@@ -296,13 +332,13 @@ $('#deleteNotification').click(function () {
                 "Authorization": sessionStorage.getItem("tokenType") + " " + sessionStorage.getItem("accessToken"),
             },
             data: JSON.stringify(deletedRowemail),
-            url: "http://localhost:8090/EMSPNC/DeleteData",
+            url: "http://localhost:8090/emailnotify/DeleteData",
             success: function (msg) {
                 if (msg == "Deleted Sucessfully") {
                     //document.getElementById("updateRow").style.display = "none";
                     getUserEmailNotification();
                     alert("Data is delete successfully");
-                    $(':checkbox').prop('checked', false);
+                    // $(':checkbox').prop('checked', false);
                 } else {
 
                 }
@@ -311,7 +347,4 @@ $('#deleteNotification').click(function () {
     } else {
         alert('Please Select atleast one checkbox.')
     }
-
-
-
-});
+}
