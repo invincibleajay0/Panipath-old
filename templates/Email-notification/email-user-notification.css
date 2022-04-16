@@ -50,10 +50,13 @@
   overflow: auto;
 }
 
-
+.Email-notification .drop-overflow {
+  height: 20rem;
+  overflow: auto;
+}
 .Email-notification ::-webkit-scrollbar {
-  width: 6px;
-  height: 12px;
+  width: 0.5vw;
+  height: 0.3vw;
 }
 
 .Email-notification ::-webkit-scrollbar-track {
@@ -102,8 +105,6 @@
 }
 
 .Email-notification .modal .dropdown-menu {
-  max-height: 20rem;
-  overflow-y: auto;
   max-width: 100%;
   text-align: start;
 }

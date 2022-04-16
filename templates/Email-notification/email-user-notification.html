@@ -43,8 +43,9 @@
                                         <th style="text-align: center;">Min value</th>
                                         <th style="text-align: center;">Max value</th>
                                         <th style="text-align: center;">Edit</th>
-                                        <th style="text-align: center;"><input type="checkbox" id="caldeledataemail" value="Delete"><label
-                                                for="caldeledataemail">&nbsp; Delete All</label></th>
+                                        <th style="text-align: center;"><input type="checkbox" id="caldeledataemail"
+                                                value="Delete"><label for="caldeledataemail">&nbsp; Delete All</label>
+                                        </th>
 
                                     </tr>
                                 </thead>
@@ -81,9 +82,9 @@
                                     <span class="textstyle">Page Name <span class="pull-right">:</span></span>
                                 </div>
                                 <div class="col-md-10">
-                                    <div class="dropdown" >
-                                        <select name="" id="pageName">
-                                    </select>
+                                    <div class="dropdown">
+                                        <select name="" id="pageName" class="form-control">
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -102,7 +103,8 @@
                                             style="height: 3vw;">
                                             Select Kpi
                                         </button>
-                                        <div id="menu" class="dropdown-menu" aria-labelledby="dropdown_coins">
+                                        <div id="menu" class="dropdown-menu drop-overflow"
+                                            aria-labelledby="dropdown_coins">
                                             <form class="px-4 py-2">
                                                 <input type="search" class="form-control" id="addsearchCoin"
                                                     placeholder="search kpi here...." autofocus="autofocus">
@@ -164,11 +166,13 @@
                             <div class="col-md-2 pl-0 pr-0 mt-5">
                                 <span class="textstyle"> Page Name <span class="pull-right">:</span></span>
                             </div>
-                            <div class="dropdown" >
-                                <select name="" id="pageNameUpdate">
-                            </select>
+                            <div class="col-md-10">
+                                <div class="dropdown">
+                                    <select name="" id="pageNameUpdate" class="form-control">
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                     <div class="col-md-12 mt-14">
                         <div class="row">
@@ -176,21 +180,21 @@
                                 <span class="textstyle"> Kpi name <span class="pull-right">:</span></span>
                             </div>
                             <div class="col-md-10">
-                                <!-- <input type="text" class="form-control" name="" id="kpiName"> -->
-                                <div class="dropdown">
-                                    <button class="form-control" type="button" id="updropdown_coins"
+                                <!-- <input type="text" class="form-control" name="" id="updropdown_coins" readonly> -->
+                                <div class="dropdown"  >
+                                    <button class="form-control" type="button" id="updropdown_coins" 
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Select Kpi
                                     </button>
-                                    <div id="upmenu" class="dropdown-menu" aria-labelledby="updropdown_coins">
+                                    <!-- <div id="upmenu" class="dropdown-menu" aria-labelledby="updropdown_coins">
                                         <form class="px-4 py-2">
                                             <input type="search" class="form-control" id="upsearchCoin"
                                                 placeholder="search kpi here...." autofocus="autofocus">
                                         </form>
                                         <div id="upmenuItems"></div>
                                         <div id="upempty" class="updropdown-header">No coins found</div>
-                                    </div>
-                                </div>
+                                    </div> -->
+                                </div> 
                             </div>
                         </div>
                     </div>
