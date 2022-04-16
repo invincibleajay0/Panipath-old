@@ -19,7 +19,7 @@ $(document).ready(function () {
 function getAllKpidetails() {
     $.ajax({
         method: "GET",
-        url: "http://localhost:8090/emailnotify/getALLKPINames",
+        url: "http://localhost:8090/EMSPNC/emailnotify/getALLKPINames",
 
     }).done(function (data) {
         console.log(data);
@@ -35,7 +35,7 @@ function getAllKpidetails() {
 function getPageId(pagename) {
     $.ajax({
         method: "GET",
-        url: "http://localhost:8090/emailnotify/getPageDetails",
+        url: "http://localhost:8090/EMSPNC/emailnotify/getPageDetails",
 
     }).done(function (values) {
 
@@ -50,7 +50,7 @@ function getPageId(pagename) {
 function selectpagename() {
     $.ajax({
         method: "GET",
-        url: "http://localhost:8090/emailnotify/getPageDetails",
+        url: "http://localhost:8090/EMSPNC/emailnotify/getPageDetails",
 
     }).done(function (values) {
         for (const val of values) {
@@ -189,7 +189,7 @@ function getUserEmailNotification() {
             "Authorization": sessionStorage.getItem("tokenType") + " " + sessionStorage.getItem("accessToken"),
         },
         type: "GET",
-        url: "http://localhost:8090/emailnotify/AllData",
+        url: "http://localhost:8090/EMSPNC/emailnotify/AllData",
 
     }).done(function (data) {
         emailtableRender(data)
@@ -232,7 +232,7 @@ function addNewData() {
                 "Authorization": sessionStorage.getItem("tokenType") + " " + sessionStorage.getItem("accessToken"),
             },
             data: JSON.stringify(objectarryemail),
-            url: "http://localhost:8090/emailnotify/InsertData ",
+            url: "http://localhost:8090/EMSPNC/emailnotify/InsertData ",
             success: function (msg) {
 
                 if (msg.status == 'Record Inserted Sucessfully') {
@@ -269,7 +269,7 @@ function upaddNewData() {
             "Authorization": sessionStorage.getItem("tokenType") + " " + sessionStorage.getItem("accessToken"),
         },
         data: JSON.stringify(objectarryemail),
-        url: "http://localhost:8090/emailnotify/UpdateData",
+        url: "http://localhost:8090/EMSPNC/emailnotify/UpdateData",
         success: function (msg) {
             var status = msg.status
             if (status == "Record Updated Sucessfully!") {
@@ -332,7 +332,7 @@ function deleteNotification() {
                 "Authorization": sessionStorage.getItem("tokenType") + " " + sessionStorage.getItem("accessToken"),
             },
             data: JSON.stringify(deletedRowemail),
-            url: "http://localhost:8090/emailnotify/DeleteData",
+            url: "http://localhost:8090/EMSPNC/emailnotify/DeleteData",
             success: function (msg) {
                 if (msg == "Deleted Sucessfully") {
                     //document.getElementById("updateRow").style.display = "none";

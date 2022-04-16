@@ -85,7 +85,7 @@
 
 .Usermanual-tabb-2 .modal .modal-content {
     background-color: #fefefe;
-    margin: 12vw 18vw;
+    margin: 6vw 15vw;
     padding: 1vw;
     box-shadow: none;
     border: 2px solid #432b64;
@@ -128,7 +128,7 @@
 }
 
 .Usermanual-tabb-2 .addbtn {
-    margin: 0vw 18vw;
+    margin: 0vw 30vw;
     background: #432b64;
     border: none;
     border-radius: 5px;
@@ -164,4 +164,11 @@
     -moz-appearance: none;
     text-indent: 0.01px;
     text-overflow: ellipsis;
+}
+.icon {
+    position: relative;
+    bottom: 1.5vw;
+    float: right;
+    margin: 0vw 1vw;
+    cursor: pointer;
 }
