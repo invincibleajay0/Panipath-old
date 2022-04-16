@@ -15,12 +15,12 @@ $(document).ready(function () {
         var empEmailID = $(this).closest('tr').find('td:eq(5)').text();
         var empEmailNotification = $(this).closest('tr').find('td:eq(6)').text();
         var empMobileNo = $(this).closest('tr').find('td:eq(7)').text();
-        var empEmailStatus = $(this).closest('tr').find('td:eq(10)').text();
+        var empStatus = $(this).closest('tr').find('td:eq(10)').text();
         var userType = $(this).closest('tr').find('td:eq(11)').text();
         document.getElementById("tagNamep").value = userName;
         $("#tagValuep option[value='" + userRole + "']").attr("selected", "selected");
         $("#empEmailnotificaton option[value='" + empEmailNotification + "']").attr("selected", "selected");
-        $("#empstatus option[value='" + empEmailStatus + "']").attr("selected", "selected");
+        $("#empstatus option[value='" + empStatus + "']").attr("selected", "selected");
         $("#userType option[value='" + userType + "']").attr("selected", "selected");
         // document.getElementById("tagValuep").value = tagValue;
         document.getElementById("empName").value = empName;
@@ -239,7 +239,7 @@ $('#updateRowBtn').click(function () {
     var empLastName = $('#empLastName').val();
     var empEmailId = $('#empEmailId').val();
     var empEmailnotificaton = $('#empEmailnotificaton').val();
-    var empEmailStatus = $("#empstatus").val();
+    var empstatus = $("#empstatus").val();
     var empMobileNo = $('#empMobileNo').val();
     var userType = $('#userType').val();
 
@@ -247,13 +247,35 @@ $('#updateRowBtn').click(function () {
         $('#localPassword').show();
         var password = $('#empPassword').val();
         var updateRow = {
-            "user_name": tagNamep, "role": tagValuep, "employee_firstname": empName, "employee_middlename": empMiddleName, "employee_lastname": empLastName, 'email_id': empEmailId,
-            'email_notification': empEmailnotificaton, 'mobile_no': empMobileNo,'status':empEmailStatus, 'user_type': userType, 'password': password
+            "user_name": tagNamep,
+            "role_id": tagValuep,
+            "employee_firstname": empName,
+            "employee_middlename": empMiddleName,
+            "employee_lastname": empLastName,
+            "email_id": empEmailId,
+            "email_notification": empEmailnotificaton,
+            "password": password,
+            "mobile_no": empMobileNo,
+            //"login_time": "2022-03-15T15:00:00",
+            //"logout_time": "2022-03-15T15:00:00",
+            "status": empstatus,
+            "user_type": userType
         }
     } else {
         var updateRow = {
-            "user_name": tagNamep, "role": tagValuep, "employee_firstname": empName,  "employee_middlename": empMiddleName, "employee_lastname": empLastName, 'email_id': empEmailId,
-            'email_notification': empEmailnotificaton, 'mobile_no': empMobileNo, 'status':empEmailStatus, 'user_type': userType, 'password': ' '
+            "user_name": tagNamep,
+            "role_id": tagValuep,
+            "employee_firstname": empName,
+            "employee_middlename": empMiddleName,
+            "employee_lastname": empLastName,
+            "email_id": empEmailId,
+            "email_notification": empEmailnotificaton,
+            "password": '',
+            "mobile_no": empMobileNo,
+            //"login_time": "2022-03-15T15:00:00",
+            //"logout_time": "2022-03-15T15:00:00",
+            "status": empstatus,
+            "user_type": userType
         }
     }
 
