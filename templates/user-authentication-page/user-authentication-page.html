@@ -31,8 +31,8 @@
                                 <thead>
                                     <tr>
                                         <th>User Name</th>
-                                        <th style="width: 8vw;">Role</th>
-                                        <th>Employee Name</th>
+                                        <th>Role</th>
+                                        <th>Employee First Name</th>
                                         <th>Employee Middle Name</th>
                                         <th>Employee Last Name</th>
                                         <th>Email Id</th>
@@ -40,10 +40,11 @@
                                         <th>Mobile No.</th>
                                         <th>Login_Time</th>
                                         <th>Logout_Time</th>
-                                        <th>status</th>
+                                        <th>Status</th>
                                         <th>User Type</th>
                                         <th>Edit</th>
-                                        <th style="width: 8vw;"><label for="deleteuserdata" style="margin-bottom:0; font-weight: 100;">&nbsp; Delete</label>
+                                        <th><label for="deleteuserdata" style="margin-bottom:0; font-weight: 100;">
+                                                Delete</label>
                                         </th>
                                     </tr>
                                 </thead>
@@ -71,10 +72,10 @@
                 <div class="col-md-12 card-col">
                     <div class="col-md-12 mt-14">
                         <div class="row">
-                            <div class="col-md-2  mt-5">
+                            <div class="col-md-2 mt-5 card-col">
                                 <span class="textstyle"> User Name <span class="pull-right">:</span></span>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-10 card-col">
                                 <input class="form-control" id="inputColumnName" type="text"
                                     placeholder="Enter User Name" />
                             </div>
@@ -82,69 +83,102 @@
                     </div>
                     <div class="col-md-12 mt-14">
                         <div class="row">
-                            <div class="col-md-2  mt-5">
+                            <div class="col-md-2 mt-5 card-col">
                                 <span class="textstyle"> Role <span class="pull-right">:</span></span>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-10 card-col">
                                 <select class="selectWrapper" id="addUserRole" aria-label="Default select example">
-                                    <option value="user"> User</option>
-                                    <option value="admin"> Admin</option>
-                                    <option value="superadmin"> Super Admin</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-12 mt-14">
                         <div class="row">
-                            <div class="col-md-2  mt-5">
-                                <span class="textstyle"> Employee Name <span class="pull-right">:</span></span>
+                            <div class="col-md-2 mt-5 card-col">
+                                <span class="textstyle"> Employee First Name <span class="pull-right">:</span></span>
                             </div>
-                            <div class="col-md-10">
-                                <input class="form-control" id="addUserName" type="text" placeholder="Enter First Name" />
+                            <div class="col-md-10 card-col">
+                                <input class="form-control" id="addUserName" type="text"
+                                    placeholder="Enter Employee First Name" />
                             </div>
                         </div>
                     </div>
                     <div class="col-md-12 mt-14">
                         <div class="row">
-                            <div class="col-md-2  mt-5">
+                            <div class="col-md-2 mt-5 card-col">
+                                <span class="textstyle"> Employee Middle Name <span class="pull-right">:</span></span>
+                            </div>
+                            <div class="col-md-10 card-col">
+                                <input class="form-control" id="addUserMiddleName" type="text"
+                                    placeholder="Enter Employee Middle Name" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-14">
+                        <div class="row">
+                            <div class="col-md-2 mt-5 card-col">
+                                <span class="textstyle"> Employee Last Name <span class="pull-right">:</span></span>
+                            </div>
+                            <div class="col-md-10 card-col">
+                                <input class="form-control" id="addUserLastName" type="text"
+                                    placeholder="Enter Employee Last Name" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-14">
+                        <div class="row">
+                            <div class="col-md-2 mt-5 card-col">
                                 <span class="textstyle"> Email Id <span class="pull-right">:</span></span>
                             </div>
-                            <div class="col-md-10">
-                                <input class="form-control" id="addEmailId" type="text"
-                                    placeholder="Enter Email Id" />
+                            <div class="col-md-10 card-col">
+                                <input class="form-control" id="addEmailId" type="email" placeholder="Enter Email Id" />
                             </div>
                         </div>
                     </div>
                     <div class="col-md-12 mt-14">
                         <div class="row">
-                            <div class="col-md-2  mt-5">
+                            <div class="col-md-2 mt-5 card-col">
                                 <span class="textstyle"> Email Notification <span class="pull-right">:</span></span>
                             </div>
-                            <div class="col-md-10">
-                                <select class="selectWrapper" id="addEmailNotification" aria-label="Default select example">
+                            <div class="col-md-10 card-col">
+                                <select class="selectWrapper" id="addEmailNotification"
+                                    aria-label="Default select example">
                                     <option value="true"> True</option>
                                     <option value="false"> False</option>
                                 </select>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-md-12 mt-14">
                         <div class="row">
-                            <div class="col-md-2  mt-5">
+                            <div class="col-md-2 mt-5 card-col">
                                 <span class="textstyle"> Mobile No <span class="pull-right">:</span></span>
                             </div>
-                            <div class="col-md-10">
-                                <input class="form-control" id="addMobile" type="number"/>
+                            <div class="col-md-10 card-col">
+                                <input class="form-control" id="addMobile" type="number" />
                             </div>
                         </div>
                     </div>
                     <div class="col-md-12 mt-14">
                         <div class="row">
-                            <div class="col-md-2  mt-5">
+                            <div class="col-md-2 mt-5 card-col">
+                                <span class="textstyle"> Status <span class="pull-right">:</span></span>
+                            </div>
+                            <div class="col-md-10 card-col">
+                                <select class="selectWrapper" id="addstatus" aria-label="Default select example">
+                                    <option value="true"> True</option>
+                                    <option value="false"> False</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-14">
+                        <div class="row">
+                            <div class="col-md-2 mt-5 card-col">
                                 <span class="textstyle"> User Type <span class="pull-right">:</span></span>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-10 card-col">
                                 <select class="selectWrapper" id="addUserType" aria-label="Default select example">
                                     <option value="L-Dap"> L-Dap</option>
                                     <option value="Local"> Local</option>
@@ -154,12 +188,12 @@
                     </div>
                     <div class="col-md-12 mt-14" id="addlocalPassword" style="display: none">
                         <div class="row">
-                            <div class="col-md-2  mt-5">
+                            <div class="col-md-2 mt-5 card-col">
                                 <span class="textstyle">Password <span class="pull-right">:</span></span>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-10 card-col">
                                 <input type="password" id="addempPassword" class="form-control">
-
+                                <i class="fa fa-eye icon" aria-hidden="true" onclick="seepass()"></i>
                             </div>
                         </div>
 
@@ -190,10 +224,10 @@
                 <div class="col-md-12 card-col">
                     <div class="col-md-12 mt-14">
                         <div class="row">
-                            <div class="col-md-2  mt-5">
+                            <div class="col-md-2 mt-5 card-col">
                                 <span class="textstyle"> User Name <span class="pull-right">:</span></span>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-10 card-col">
                                 <input type="text" id="tagNamep" class="form-control" readonly>
                             </div>
                         </div>
@@ -201,51 +235,56 @@
                     </div>
                     <div class="col-md-12 mt-14">
                         <div class="row">
-                            <div class="col-md-2  mt-5">
+                            <div class="col-md-2 mt-5 card-col">
                                 <span class="textstyle"> Role <span class="pull-right">:</span></span>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-10 card-col">
                                 <select class="selectWrapper" id="tagValuep" aria-label="Default select example">
-                                    <option value="user"> User</option>
-                                    <option value="admin"> Admin</option>
-                                    <option value="superadmin"> Super Admin</option>
                                 </select>
                             </div>
-                            
+
                         </div>
 
                     </div>
                     <div class="col-md-12 mt-14">
                         <div class="row">
-                            <div class="col-md-2  mt-5">
-                                <span class="textstyle"> Employee Name <span class="pull-right">:</span></span>
+                            <div class="col-md-2 mt-5 card-col">
+                                <span class="textstyle"> Employee First Name <span class="pull-right">:</span></span>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-10 card-col">
                                 <input type="text" id="empName" class="form-control">
 
                             </div>
                         </div>
 
                     </div>
-                    <!-- <div class="col-md-12 mt-14">
-                        <div class="row">
-                            <div class="col-md-2  mt-5">
-                                <span class="textstyle"> Emp Last Name <span class="pull-right">:</span></span>
-                            </div>
-                            <div class="col-md-10">
-                                <input type="text" id="discriptionp" class="form-control">
-
-                            </div>
-                        </div>
-
-                    </div> -->
                     <div class="col-md-12 mt-14">
                         <div class="row">
-                            <div class="col-md-2  mt-5">
+                            <div class="col-md-2 mt-5 card-col">
+                                <span class="textstyle"> Employee Middle Name <span class="pull-right">:</span></span>
+                            </div>
+                            <div class="col-md-10 card-col">
+                                <input class="form-control" id="empMiddleName" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-14">
+                        <div class="row">
+                            <div class="col-md-2 mt-5 card-col">
+                                <span class="textstyle"> Employee Last Name <span class="pull-right">:</span></span>
+                            </div>
+                            <div class="col-md-10 card-col">
+                                <input class="form-control" id="empLastName" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-14">
+                        <div class="row">
+                            <div class="col-md-2 mt-5 card-col">
                                 <span class="textstyle"> Email Id <span class="pull-right">:</span></span>
                             </div>
-                            <div class="col-md-10">
-                                <input type="text" id="empEmailId" class="form-control">
+                            <div class="col-md-10 card-col">
+                                <input type="email" id="empEmailId" class="form-control">
 
                             </div>
                         </div>
@@ -253,11 +292,12 @@
                     </div>
                     <div class="col-md-12 mt-14">
                         <div class="row">
-                            <div class="col-md-2  mt-5">
+                            <div class="col-md-2 mt-5 card-col">
                                 <span class="textstyle"> Email Notification <span class="pull-right">:</span></span>
                             </div>
-                            <div class="col-md-10">
-                                <select class="selectWrapper" id="empEmailnotificaton" aria-label="Default select example">
+                            <div class="col-md-10 card-col">
+                                <select class="selectWrapper" id="empEmailnotificaton"
+                                    aria-label="Default select example">
                                     <option value="true"> True</option>
                                     <option value="false"> False</option>
                                 </select>
@@ -268,10 +308,10 @@
                     </div>
                     <div class="col-md-12 mt-14">
                         <div class="row">
-                            <div class="col-md-2  mt-5">
+                            <div class="col-md-2 mt-5 card-col">
                                 <span class="textstyle">Mobile No. <span class="pull-right">:</span></span>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-10 card-col">
                                 <input type="number" id="empMobileNo" class="form-control">
 
                             </div>
@@ -280,10 +320,23 @@
                     </div>
                     <div class="col-md-12 mt-14">
                         <div class="row">
-                            <div class="col-md-2  mt-5">
+                            <div class="col-md-2 mt-5 card-col">
+                                <span class="textstyle"> Status <span class="pull-right">:</span></span>
+                            </div>
+                            <div class="col-md-10 card-col">
+                                <select class="selectWrapper" id="empstatus" aria-label="Default select example">
+                                    <option value="true"> True</option>
+                                    <option value="false"> False</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-14">
+                        <div class="row">
+                            <div class="col-md-2 mt-5 card-col">
                                 <span class="textstyle"> User Type <span class="pull-right">:</span></span>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-10 card-col">
                                 <select class="selectWrapper" id="userType" aria-label="Default select example">
                                     <option value="Local">Local</option>
                                     <option value="L-Dap"> L-Dap</option>
@@ -295,10 +348,10 @@
                     </div>
                     <div class="col-md-12 mt-14" id="localPassword" style="display: none">
                         <div class="row">
-                            <div class="col-md-2  mt-5">
+                            <div class="col-md-2 mt-5 card-col">
                                 <span class="textstyle">Password <span class="pull-right">:</span></span>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-10 card-col">
                                 <input type="password" id="empPassword" class="form-control">
 
                             </div>
